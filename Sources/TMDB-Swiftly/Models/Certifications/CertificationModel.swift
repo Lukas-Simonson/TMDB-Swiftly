@@ -9,7 +9,7 @@ import Foundation
 
 public struct TSCertifications: Codable {
     
-    public var certifiactions: [ String : [ Certification ] ]
+    public var certifications: [ String : [ Certification ] ]
     
     public struct Certification: Codable {
         var certification: String
