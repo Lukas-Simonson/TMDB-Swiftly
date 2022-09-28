@@ -9,9 +9,7 @@ import Foundation
 
 struct TMDBSwiftly {
     public static let basePath = "https://www.themoviedb.org/"
-}
-
-extension TMDBSwiftly {
+    
     enum APIVersion: CustomStringConvertible {
         case v3
         case v4
@@ -22,5 +20,19 @@ extension TMDBSwiftly {
                 case .v4: return "4"
             }
         }
+    }
+    
+    enum QueryParameter: CustomStringConvertible {
+        case apiKey
+        
+        var description: String {
+            switch self {
+                case .apiKey: return "api_key="
+            }
+        }
+    }
+    
+    enum TSError: Error {
+        case couldntGenerateURL( from: String )
     }
 }

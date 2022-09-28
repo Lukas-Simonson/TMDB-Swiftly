@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "hydraswiftextensions",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Hydra-Design/HydraSwiftExtensions.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "93e1f527ef0dcb1cfb7c1a59f4d7b6bfd8270814"
+      }
+    }
+  ],
+  "version" : 2
+}
