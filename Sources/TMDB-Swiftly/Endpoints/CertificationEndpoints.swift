@@ -17,7 +17,7 @@ extension TMDBSwiftly.Certification {
     
     public static func getMovieCertifications< Cert: Codable >( key: String ) async throws -> Cert {
         let urlString = "\(TMDBSwiftly.basePath)\(TMDBSwiftly.APIVersion.v3)/certification/movie/list?\(TMDBSwiftly.QueryParameter.apiKey)\(key)"
-        
+        print( urlString )
         guard let url = URL(string: urlString) else {
             throw TMDBSwiftly.TSError.couldntGenerateURL(from: urlString )
         }
