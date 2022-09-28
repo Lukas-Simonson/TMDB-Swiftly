@@ -17,7 +17,7 @@ extension TMDBSwiftly.Certification {
     /// - Parameters:
     ///   - key: An API key to access TMDB.
     ///
-    public static func getMovieTSCertifications( key: String ) async throws -> TSCertifications {
+    public static func getMovieCertificationsTS( key: String ) async throws -> TSCertifications {
         return try await getMovieCertifications(key: key)
     }
     
@@ -28,7 +28,7 @@ extension TMDBSwiftly.Certification {
     ///
     public static func getMovieCertifications< Cert: Codable >( key: String ) async throws -> Cert {
         
-        let urlString = "\(TMDBSwiftly.basePath)\(TMDBSwiftly.APIVersion.v3)/certification/movie/list?\(TMDBSwiftly.QueryParameter.apiKey)\(key)"
+        let urlString = "\(TMDBSwiftly.basePath)\(TMDBSwiftly.APIVersion.v3)/certification/movie/list?\(TMDBSwiftly.QueryParameter.apiKey(value: key))"
         guard let url = URL(string: urlString) else {
             throw TMDBSwiftly.TSError.couldntGenerateURL(from: urlString )
         }
@@ -43,7 +43,7 @@ extension TMDBSwiftly.Certification {
     /// - Parameters:
     ///   - key: An API key to access TMDB.
     ///
-    public static func getTVTSCertifications( key: String ) async throws -> TSCertifications {
+    public static func getTVCertificationsTS( key: String ) async throws -> TSCertifications {
         return try await getTVCertifications(key: key)
     }
     
@@ -54,7 +54,7 @@ extension TMDBSwiftly.Certification {
     ///
     public static func getTVCertifications< Cert: Codable >( key: String ) async throws -> Cert {
         
-        let urlString = "\(TMDBSwiftly.basePath)\(TMDBSwiftly.APIVersion.v3)/certification/tv/list?\(TMDBSwiftly.QueryParameter.apiKey)\(key)"
+        let urlString = "\(TMDBSwiftly.basePath)\(TMDBSwiftly.APIVersion.v3)/certification/tv/list?\(TMDBSwiftly.QueryParameter.apiKey(value: key))"
         guard let url = URL(string: urlString) else {
             throw TMDBSwiftly.TSError.couldntGenerateURL(from: urlString )
         }

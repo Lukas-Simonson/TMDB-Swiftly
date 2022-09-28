@@ -10,6 +10,8 @@ import Foundation
 public struct TMDBSwiftly {
     public static let basePath = "https://api.themoviedb.org/"
     
+    private init() {}
+    
     public enum APIVersion: CustomStringConvertible {
         case v3
         case v4
@@ -23,11 +25,11 @@ public struct TMDBSwiftly {
     }
     
     public enum QueryParameter: CustomStringConvertible {
-        case apiKey
+        case apiKey( value: String )
         
         public var description: String {
             switch self {
-                case .apiKey: return "api_key="
+                case .apiKey( let value ): return "api_key=\(value)"
             }
         }
     }
