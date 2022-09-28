@@ -12,8 +12,8 @@ public struct TSCertifications: Codable {
     public var certifications: [ String : [ Certification ] ]
     
     public struct Certification: Codable {
-        var certification: String
-        var meaning: String
-        var order: Int
+        public var certification: String
+        public var meaning: String
+        public var order: Int
     }
 }
