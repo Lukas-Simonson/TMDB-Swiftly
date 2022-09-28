@@ -8,8 +8,10 @@
 import Foundation
 
 struct TMDBSwiftly {
-    private static let basePath = "https://www.themoviedb.org/"
-    
+    public static let basePath = "https://www.themoviedb.org/"
+}
+
+extension TMDBSwiftly {
     enum APIVersion: CustomStringConvertible {
         case v3
         case v4

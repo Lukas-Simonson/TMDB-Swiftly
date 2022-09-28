@@ -1,11 +1,13 @@
 //
-//  File.swift
+//  TMDBSwiftlyPath.swift
 //  
 //
 //  Created by Lukas Simonson on 9/27/22.
 //
 
 import Foundation
+
+protocol TMDBSwiftlyPath {  }
 
 extension TMDBSwiftly {
     
