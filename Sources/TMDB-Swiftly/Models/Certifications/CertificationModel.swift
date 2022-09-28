@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct TSCertifications: Codable {
+public struct TSCertifications: Codable {
     
-    var certifiactions: [ String : [ Certification ] ]
+    public var certifiactions: [ String : [ Certification ] ]
     
-    struct Certification: Codable {
+    public struct Certification: Codable {
         var certification: String
         var meaning: String
         var order: Int

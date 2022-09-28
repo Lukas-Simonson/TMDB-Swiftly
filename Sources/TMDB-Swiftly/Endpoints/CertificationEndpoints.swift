@@ -11,11 +11,11 @@ import HydraSwiftExtensions
 extension TMDBSwiftly.Certification {
     
     // MARK: Movie Certifications
-    public func getMovieTSCertifications( key: String ) async throws -> TSCertifications {
+    public static func getMovieTSCertifications( key: String ) async throws -> TSCertifications {
         return try await getMovieCertifications(key: key)
     }
     
-    public func getMovieCertifications< Cert: Codable >( key: String ) async throws -> Cert {
+    public static func getMovieCertifications< Cert: Codable >( key: String ) async throws -> Cert {
         let urlString = "\(TMDBSwiftly.basePath)\(TMDBSwiftly.APIVersion.v3)/certification/movie/list?\(TMDBSwiftly.QueryParameter.apiKey)\(key)"
         
         guard let url = URL(string: urlString) else {
@@ -26,11 +26,11 @@ extension TMDBSwiftly.Certification {
     }
     
     // MARK: TV Certifications
-    public func getTVTSCertifications( key: String ) async throws -> TSCertifications {
+    public static func getTVTSCertifications( key: String ) async throws -> TSCertifications {
         return try await getTVCertifications(key: key)
     }
     
-    public func getTVCertifications< Cert: Codable >( key: String ) async throws -> Cert {
+    public static func getTVCertifications< Cert: Codable >( key: String ) async throws -> Cert {
         let urlString = "\(TMDBSwiftly.basePath)\(TMDBSwiftly.APIVersion.v3)/certification/tv/list?\(TMDBSwiftly.QueryParameter.apiKey)\(key)"
         
         guard let url = URL(string: urlString) else {

@@ -9,7 +9,7 @@ import Foundation
 
 extension TMDBSwiftly {
     
-    struct Certification: TMDBSwiftlyPath {
-        
+    public struct Certification: TMDBSwiftlyPath {
+        private init() {}
     }
 }
