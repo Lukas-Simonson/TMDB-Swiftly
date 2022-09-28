@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct TMDBSwiftly {
+public struct TMDBSwiftly {
     public static let basePath = "https://www.themoviedb.org/"
     
-    enum APIVersion: CustomStringConvertible {
+    public enum APIVersion: CustomStringConvertible {
         case v3
         case v4
         
-        var description: String {
+        public var description: String {
             switch self {
                 case .v3: return "3"
                 case .v4: return "4"
@@ -22,17 +22,17 @@ struct TMDBSwiftly {
         }
     }
     
-    enum QueryParameter: CustomStringConvertible {
+    public enum QueryParameter: CustomStringConvertible {
         case apiKey
         
-        var description: String {
+        public var description: String {
             switch self {
                 case .apiKey: return "api_key="
             }
         }
     }
     
-    enum TSError: Error {
+    public enum TSError: Error {
         case couldntGenerateURL( from: String )
     }
 }
