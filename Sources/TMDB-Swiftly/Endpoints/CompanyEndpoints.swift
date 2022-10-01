@@ -41,5 +41,31 @@ extension TMDBSwiftly.Company {
     }
     
     // MARK: - Images
+    public static func getImagesDataTS( for id: Int, apiKey key: String ) async throws -> [ TSCompany.ImageInfomation ] {
+        
+        let urlString = "\( TMDBSwiftly.basePath )\( TMDBSwiftly.APIVersion.v3 )/company/\(id)/images?\( TMDBSwiftly.QueryParameter.apiKey(value: key) )"
+        guard let url = URL(string: urlString) else {
+            throw TMDBSwiftly.TSError.couldntGenerateURL(from: urlString)
+        }
+        
+        let ( data, _ ) = try await URLSession.shared.data(from: url)
+                
+        let json = try JSONSerialization.jsonObject(with: data)
+        if let details = json as? [ String : Any ] {
+            if let images = details[ "logos" ] as? [ TSCompany.ImageInfomation ] {
+                return images
+            }
+        }
+        throw TMDBSwiftly.TSError.couldntGenerateURL(from: "")
+    }
     
+    public static func getImagesData< ImageData: Codable >( for id: Int, apiKey key: String ) async throws -> ImageData {
+        
+        let urlString = "\( TMDBSwiftly.basePath )\( TMDBSwiftly.APIVersion.v3 )/company/\(id)/images?\( TMDBSwiftly.QueryParameter.apiKey(value: key) )"
+        guard let url = URL(string: urlString) else {
+            throw TMDBSwiftly.TSError.couldntGenerateURL(from: urlString)
+        }
+        
+        return try await HydraHTTP.getObjectFromUrl(url)
+    }
 }

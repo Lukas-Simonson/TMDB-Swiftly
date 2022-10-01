@@ -52,16 +52,3 @@ public struct TSCompany: Codable {
         }
     }
 }
-
-/*
- {
-   "description": "",
-   "headquarters": "Glendale, California",
-   "homepage": "http://www.dreamworksanimation.com/",
-   "id": 521,
-   "logo_path": "/kP7t6RwGz2AvvTkvnI1uteEwHet.png",
-   "name": "DreamWorks Animation",
-   "origin_country": "US",
-   "parent_company": null
- }
- */
