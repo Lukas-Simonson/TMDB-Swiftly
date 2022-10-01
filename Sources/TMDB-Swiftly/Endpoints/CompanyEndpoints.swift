@@ -52,18 +52,16 @@ extension TMDBSwiftly.Company {
                 
         let json = try JSONSerialization.jsonObject(with: data)
         if let details = json as? [ String : Any ] {
-            print( details )
-            if let newData = details[ "logos" ] as? Data {
-                return try HydraDecoding.convertJSONData(newData)
+            if let logos = details[ "logos" ] as? [[ String : Any ]] {
+                return logos.compactMap { jsonObj in
+                    try? TSCompany.ImageInfomation(from: jsonObj)
+                }
             }
-//            if let images = details[ "logos" ] as? [ TSCompany.ImageInfomation ] {
-//                return images
-//            }
         }
         throw TMDBSwiftly.TSError.couldntConvertData
     }
     
-    public static func getImagesData< ImageData: Codable >( for id: Int, apiKey key: String ) async throws -> ImageData {
+    public static func getImagesData< ImageDataArray: Codable >( for id: Int, apiKey key: String ) async throws -> ImageDataArray {
         
         let urlString = "\( TMDBSwiftly.basePath )\( TMDBSwiftly.APIVersion.v3 )/company/\(id)/images?\( TMDBSwiftly.QueryParameter.apiKey(value: key) )"
         guard let url = URL(string: urlString) else {
