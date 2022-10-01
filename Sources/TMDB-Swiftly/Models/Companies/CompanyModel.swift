@@ -38,7 +38,7 @@ public struct TSCompany: Codable {
         public let aspectRatio: Double
         public let filePath: String
         public let fileType: String
-        public let voteAverage: String
+        public let voteAverage: Double
         public let voteCount: Int
         public let width: Int
         public let id: String
@@ -48,7 +48,7 @@ public struct TSCompany: Codable {
             guard let aspect = dict[ CodingKeys.aspectRatio.rawValue ] as? Double,
                   let path = dict[ CodingKeys.filePath.rawValue ] as? String,
                   let type = dict[ CodingKeys.fileType.rawValue ] as? String,
-                  let average = dict[ CodingKeys.voteAverage.rawValue ] as? String,
+                  let average = dict[ CodingKeys.voteAverage.rawValue ] as? Double,
                   let count = dict[ CodingKeys.voteCount.rawValue ] as? Int,
                   let width = dict[ CodingKeys.width.rawValue ] as? Int,
                   let id = dict[ CodingKeys.id.rawValue ] as? String
