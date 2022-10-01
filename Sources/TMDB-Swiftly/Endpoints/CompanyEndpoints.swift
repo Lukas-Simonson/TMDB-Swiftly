@@ -56,7 +56,7 @@ extension TMDBSwiftly.Company {
                 return images
             }
         }
-        throw TMDBSwiftly.TSError.couldntGenerateURL(from: "")
+        throw TMDBSwiftly.TSError.couldntConvertData
     }
     
     public static func getImagesData< ImageData: Codable >( for id: Int, apiKey key: String ) async throws -> ImageData {

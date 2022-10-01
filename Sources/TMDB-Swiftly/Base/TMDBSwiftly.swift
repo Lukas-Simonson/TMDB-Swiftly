@@ -36,5 +36,6 @@ public struct TMDBSwiftly {
     
     public enum TSError: Error {
         case couldntGenerateURL( from: String )
+        case couldntConvertData
     }
 }
