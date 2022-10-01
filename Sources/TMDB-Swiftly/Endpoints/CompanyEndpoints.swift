@@ -52,6 +52,7 @@ extension TMDBSwiftly.Company {
                 
         let json = try JSONSerialization.jsonObject(with: data)
         if let details = json as? [ String : Any ] {
+            print( data )
             if let data = details[ "logos" ] as? Data {
                 return try HydraDecoding.convertJSONData(data)
             }
