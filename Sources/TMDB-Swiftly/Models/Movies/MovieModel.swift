@@ -11,7 +11,7 @@ public struct TSMovie: Codable {
     
     let adult: Bool?
     let backdropPath: String?
-    let belongsToCollection: [ MovieCollection ]?
+    let belongsToCollection: MovieCollection?
     let budget: Int?
     let genres: [ Genre ]?
     let homepage: String?
