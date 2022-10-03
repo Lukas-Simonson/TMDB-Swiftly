@@ -10,7 +10,7 @@ import HydraSwiftExtensions
 
 extension TMDBSwiftly.Certification {
     
-    // MARK: Movie Certifications
+    // MARK: - Movie Certifications
     
     /// Retrieves Movie Certification data and converts it to a TSCertification object.
     ///
@@ -36,7 +36,7 @@ extension TMDBSwiftly.Certification {
         return try await HydraHTTP.getObjectFromUrl(url)
     }
     
-    // MARK: TV Certifications
+    // MARK: - TV Certifications
     
     /// Retrieves TV Certification data and converts it to a TSCertification object.
     ///
