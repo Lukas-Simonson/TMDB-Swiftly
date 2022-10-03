@@ -9,7 +9,7 @@ import Foundation
 
 extension TMDBSwiftly {
     
-    struct Movie: TMDBSwiftlyPath {
-        
+    public struct Movie: TMDBSwiftlyPath {
+        private init() {}
     }
 }
