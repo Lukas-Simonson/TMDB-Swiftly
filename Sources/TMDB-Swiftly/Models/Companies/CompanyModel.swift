@@ -48,6 +48,15 @@ public struct TSCompany: Codable {
     public struct AlternateName: Codable {
         public let name: String
         public let type: String
+        
+        init( from dict: [ String : Any ] ) throws {
+            guard let name = dict [ "name" ] as? String,
+                  let type = dict[ "type" ] as? String
+            else { throw TMDBSwiftly.TSError.invalidData( dict ) }
+            
+            self.name = name
+            self.type = type
+        }
     }
     
     /// A Struct that represents information about different images that might be used with the company.

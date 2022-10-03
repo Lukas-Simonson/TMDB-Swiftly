@@ -56,8 +56,10 @@ extension TMDBSwiftly.Company {
         let json = try JSONSerialization.jsonObject( with: data )
 
         if let details = json as? [ String : Any ],
-           let results = details[ "results" ] as? [ TSCompany.AlternateName ] {
-            return results
+           let results = details[ "results" ] as? [[ String : Any ]] {
+            return results.compactMap { jsonDict in
+                try? TSCompany.AlternateName( from: jsonDict )
+            }
         }
         
         throw TMDBSwiftly.TSError.couldntConvertData
@@ -100,9 +102,9 @@ extension TMDBSwiftly.Company {
 
         if let details = json as? [ String : Any ],
            let logos = details[ "logos" ] as? [[ String : Any ]] {
-                return logos.compactMap { jsonDict in
-                    try? TSCompany.ImageInfomation( from: jsonDict )
-                }
+            return logos.compactMap { jsonDict in
+                try? TSCompany.ImageInfomation( from: jsonDict )
+            }
         }
         
         throw TMDBSwiftly.TSError.couldntConvertData
