@@ -15,7 +15,7 @@ public struct TSMovie: Codable {
     let budget: Int?
     let genres: [ Genre ]?
     let homepage: String?
-    let id: Int?
+    let id: Int
     let imdbID: String?
     let originalLanguage: String?
     let originalTitle: String?

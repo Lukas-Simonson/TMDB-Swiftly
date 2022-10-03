@@ -11,25 +11,25 @@ import Foundation
 public struct TSCompany: Codable {
     
     /// A Description of the company.
-    public let description: String
+    public let description: String?
     
     /// Where the company is located.
-    public let headquarters: String
+    public let headquarters: String?
     
     /// A String that represents the URL of the companies homepage.
-    public let homepage: String
+    public let homepage: String?
     
     /// An ID given to the company from TMDB.
     public let id: Int
     
     /// A path that can be used to gain access to a Logo tied to the company.
-    public let logoPath: String
+    public let logoPath: String?
     
     /// The name of the company.
-    public let name: String
+    public let name: String?
     
     /// The country that the company originates from.
-    public let originCountry: String
+    public let originCountry: String?
     
     // TODO: Fix Parent Company Recursion
     //public let parentCompany: ParentCompany?
