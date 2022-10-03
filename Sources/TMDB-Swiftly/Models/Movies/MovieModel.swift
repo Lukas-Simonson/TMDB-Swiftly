@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TSMovie: Codable {
+public struct TSMovie: Codable {
     
     let adult: Bool?
     let backdropPath: String?
