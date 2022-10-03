@@ -36,8 +36,38 @@ public struct TMDBSwiftly {
                 case .apiKey( let value ): return "api_key=\(value)"
             }
         }
+        
+        public enum Movie: CustomStringConvertible {
+            case alternativeTitles
+            case changes
+            case credits
+            case images
+            case keywords
+            case lists
+            case releases
+            case reviews
+            case similar
+            case translations
+            case videos
+            
+            public var description: String {
+                switch self {
+                    case .alternativeTitles: return "alternative_titles"
+                    case .changes: return "changes"
+                    case .credits: return "credits"
+                    case .images: return "images"
+                    case .keywords: return "keywords"
+                    case .lists: return "lists"
+                    case .releases: return "releases"
+                    case .reviews: return "reviews"
+                    case .similar: return "similar"
+                    case .translations: return "translations"
+                    case .videos: return "videos"
+                }
+            }
+        }
     }
-    
+        
     /// Errors thrown by TMDBSwiftly
     public enum TSError: Error {
         case couldntGenerateURL( from: String )
