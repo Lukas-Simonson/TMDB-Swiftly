@@ -63,7 +63,7 @@ public struct TSMovie: Codable {
         case voteCount = "vote_count"
     }
     
-    struct MovieCollection: Codable {
+    public struct MovieCollection: Codable {
         let id: Int?
         let name: String?
         let posterPath: String?
@@ -77,7 +77,7 @@ public struct TSMovie: Codable {
         }
     }
     
-    struct SpokenLanguage: Codable {
+    public struct SpokenLanguage: Codable {
         let countryCode: String
         let englishName: String
         let name: String
@@ -89,7 +89,7 @@ public struct TSMovie: Codable {
         }
     }
     
-    struct ProductionCountry: Codable {
+    public struct ProductionCountry: Codable {
         let countryCode: String
         let name: String
         
@@ -99,19 +99,29 @@ public struct TSMovie: Codable {
         }
     }
     
-    struct Genre: Codable {
+    public struct Genre: Codable {
         let id: Int
         let name: String
     }
+    
+    public struct TSMovieResults: Codable {
+        let page: Int?
+        let results: [ TSMovie ]?
+        let dates: Dates?
+        let totalPages: Int?
+        let totalResults: Int?
+        
+        enum CodingKeys: String, CodingKey {
+            case page
+            case results
+            case dates
+            case totalPages = "total_pages"
+            case totalResults = "total_results"
+        }
+        
+        public struct Dates: Codable {
+            let minimum: String?
+            let maximum: String?
+        }
+    }
 }
-
-/*
- {
-   "status": "Released",
-   "tagline": "The greatest fairy tale never told.",
-   "title": "Shrek",
-   "video": false,
-   "vote_average": 7.702,
-   "vote_count": 14328
- }
- */

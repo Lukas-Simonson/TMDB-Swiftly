@@ -74,4 +74,24 @@ public struct TMDBSwiftly {
         case couldntConvertData
         case invalidData( Any )
     }
+    
+    public enum TSLanguage: CustomStringConvertible {
+        case USEnglish
+        
+        public var description: String {
+            switch self {
+                case .USEnglish: return "en-US"
+            }
+        }
+    }
+    
+    public enum TSRegion: CustomStringConvertible {
+        case unitedStatesOfAmerica
+        
+        public var description: String {
+            switch self {
+                case .unitedStatesOfAmerica: return "US"
+            }
+        }
+    }
 }
