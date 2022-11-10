@@ -3,10 +3,10 @@
     {
       "identity" : "hydraswiftextensions",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Hydra-Design/HydraSwiftExtensions.git",
+      "location" : "https://github.com/Hydra-Design/HydraSwiftExtensions",
       "state" : {
         "branch" : "main",
-        "revision" : "93e1f527ef0dcb1cfb7c1a59f4d7b6bfd8270814"
+        "revision" : "2949efb54e9b77fef86e417bf7cf67c2d3e421ff"
       }
     }
   ],

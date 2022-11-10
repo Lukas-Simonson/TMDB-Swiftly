@@ -35,7 +35,7 @@ extension TMDBSwiftly.Company {
             throw TMDBSwiftly.TSError.couldntGenerateURL( from: urlString )
         }
         
-        return try await HydraHTTP.getObjectFromUrl( url )
+        return try await HydraHTTP.getObjectFromURL( url )
     }
     
     // MARK: - Alternate Names
@@ -78,7 +78,7 @@ extension TMDBSwiftly.Company {
             throw TMDBSwiftly.TSError.couldntGenerateURL( from: urlString )
         }
         
-        return try await HydraHTTP.getObjectFromUrl( url )
+        return try await HydraHTTP.getObjectFromURL( url )
     }
     
     // MARK: - Images
@@ -123,6 +123,6 @@ extension TMDBSwiftly.Company {
             throw TMDBSwiftly.TSError.couldntGenerateURL( from: urlString )
         }
         
-        return try await HydraHTTP.getObjectFromUrl( url )
+        return try await HydraHTTP.getObjectFromURL( url )
     }
 }

@@ -45,7 +45,7 @@ extension TMDBSwiftly.Movie {
             throw TMDBSwiftly.TSError.couldntGenerateURL( from: urlString )
         }
         
-        return try await HydraHTTP.getObjectFromUrl( url )
+        return try await HydraHTTP.getObjectFromURL( url )
     }
     
     // MARK: - Now Playing
@@ -71,7 +71,8 @@ extension TMDBSwiftly.Movie {
             throw TMDBSwiftly.TSError.couldntGenerateURL(from: urlString)
         }
         
-        return try await HydraHTTP.getObjectFromUrl( url )
+        //return try await HydraHTTP.getObjectFromURL( url )
+        return try await HydraHTTP.getObjectFromURL( url )
     }
 }
 

@@ -33,7 +33,7 @@ extension TMDBSwiftly.Certification {
             throw TMDBSwiftly.TSError.couldntGenerateURL(from: urlString )
         }
         
-        return try await HydraHTTP.getObjectFromUrl(url)
+        return try await HydraHTTP.getObjectFromURL(url)
     }
     
     // MARK: - TV Certifications
@@ -59,6 +59,6 @@ extension TMDBSwiftly.Certification {
             throw TMDBSwiftly.TSError.couldntGenerateURL(from: urlString )
         }
         
-        return try await HydraHTTP.getObjectFromUrl(url)
+        return try await HydraHTTP.getObjectFromURL(url)
     }
 }
