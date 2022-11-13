@@ -33,7 +33,7 @@ public struct TSMovie: Codable {
     public let title: String?
     public let video: Bool?
     public let voteAverage: Double?
-    public let voteCount: Double?
+    public let voteCount: Int?
     
     enum CodingKeys: String, CodingKey {
         case adult
@@ -103,25 +103,100 @@ public struct TSMovie: Codable {
         public let id: Int
         public let name: String
     }
+}
+
+public struct TSMovieResults: Codable {
+    public let page: Int?
+    public let results: [ TSMovie ]?
+    public let dates: Dates?
+    public let totalPages: Int?
+    public let totalResults: Int?
     
-    public struct TSMovieResults: Codable {
-        public let page: Int?
-        public let results: [ TSMovie ]?
-        public let dates: Dates?
-        public let totalPages: Int?
-        public let totalResults: Int?
-        
-        enum CodingKeys: String, CodingKey {
-            case page
-            case results
-            case dates
-            case totalPages = "total_pages"
-            case totalResults = "total_results"
-        }
-        
-        public struct Dates: Codable {
-            let minimum: String?
-            let maximum: String?
-        }
+    enum CodingKeys: String, CodingKey {
+        case page
+        case results
+        case dates
+        case totalPages = "total_pages"
+        case totalResults = "total_results"
     }
+    
+    public struct Dates: Codable {
+        let minimum: String?
+        let maximum: String?
+    }
+}
+
+public extension TSMovie {
+    
+    static let shrek = TSMovie(
+        adult: false,
+        backdropPath: "/sRvXNDItGlWCqtO3j6wks52FmbD.jpg",
+        belongsToCollection: MovieCollection(
+            id: 2150,
+            name: "Shrek Collection",
+            posterPath: "/qNHZMe92A7Pyl46qUH29hVOtbSK.jp",
+            backdropPath: "/gMWrKQjoTIpYjhc8SxZF20EDIES.jpg"
+        ),
+        budget: 60_000_000,
+        genres: [
+            Genre(id: 16, name: "Animation"),
+            Genre(id: 35, name: "Comedy"),
+            Genre(id: 14, name: "Fantasy"),
+            Genre(id: 12, name: "Adventure"),
+            Genre(id: 10751, name: "Family")
+        ],
+        homepage: "http://www.dreamworksanimation.com/shrek/",
+        id: 808,
+        imdbID: "tt0126029",
+        originalLanguage: "en",
+        originalTitle: "Shrek",
+        overview: "It ain't easy bein' green -- especially if you're a likable (albeit smelly) ogre named Shrek. On a mission to retrieve a gorgeous princess from the clutches of a fire-breathing dragon, Shrek teams up with an unlikely compatriot -- a wisecracking donkey.",
+        popularity: 281.729,
+        posterPath: "/iB64vpL3dIObOtMZgX3RqdVdQDc.jpg",
+        productionCompanies: [
+            TSCompany(
+                description: nil,
+                headquarters: nil,
+                homepage: nil,
+                id: 7,
+                logoPath: "/vru2SssLX3FPhnKZGtYw00pVIS9.png",
+                name: "DreamWorks Pictures",
+                originCountry: "US"
+            ),
+            TSCompany(
+                description: nil,
+                headquarters: nil,
+                homepage: nil,
+                id: 520,
+                logoPath: "/pU7YTI9FfrICurXpl5V9TfCO0oJ.png",
+                name: "Pacific Data Images",
+                originCountry: "US"
+            ),
+            TSCompany(
+                description: nil,
+                headquarters: nil,
+                homepage: nil,
+                id: 521,
+                logoPath: "/kP7t6RwGz2AvvTkvnI1uteEwHet.png",
+                name: "DreamWorks Animation",
+                originCountry: "US"
+            )
+        ],
+        productionCountries: [
+            ProductionCountry(countryCode: "US", name: "United States of America")
+        ],
+        releaseDate: "2001-05-18",
+        revenue: 487853320,
+        runtime: 90,
+        spokenLanguages: [
+            SpokenLanguage(countryCode: "en", englishName: "English", name: "English")
+        ],
+        status: "Released",
+        tagline: "The greatest fairy tale never told.",
+        title: "Shrek",
+        video: false,
+        voteAverage: 7.703,
+        voteCount: 14463
+    )
+    
 }

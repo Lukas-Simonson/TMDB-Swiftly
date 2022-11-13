@@ -55,7 +55,7 @@ extension TMDBSwiftly.Movie {
         page: Int = 1,
         language: TMDBSwiftly.TSLanguage = .USEnglish,
         region: TMDBSwiftly.TSRegion = .unitedStatesOfAmerica
-    ) async throws -> TSMovie.TSMovieResults {
+    ) async throws -> TSMovieResults {
         return try await nowPlaying(apiKey: key, page: page, language: language, region: region)
     }
     
