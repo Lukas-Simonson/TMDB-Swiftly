@@ -71,6 +71,7 @@ public struct TMDBSwiftly {
     /// Errors thrown by TMDBSwiftly
     public enum TSError: Error {
         case couldntGenerateURL( from: String )
+        case noCertFound
         case couldntConvertData
         case invalidData( Any )
     }

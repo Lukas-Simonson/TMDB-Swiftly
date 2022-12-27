@@ -48,6 +48,29 @@ extension TMDBSwiftly.Movie {
         return try await HydraHTTP.getObjectFromURL( url )
     }
     
+    public static func getCertification(
+        for id: Int,
+        apiKey key: String,
+        country: TMDBSwiftly.TSRegion
+    ) async throws -> String {
+        
+        let urlString = "\(TMDBSwiftly.basePath)\(TMDBSwiftly.APIVersion.v3)/movie/\(id)?\(TMDBSwiftly.QueryParameter.apiKey(value: key))"
+        guard let url = URL(string: urlString)
+        else { throw TMDBSwiftly.TSError.couldntGenerateURL(from: urlString) }
+        
+        let (data, _) = try await URLSession.shared.data(from: url)
+        
+        if let json = try JSONSerialization.jsonObject(with: data) as? [String : Any],
+           let releaseDates = json["results"] as? [[String : Any]],
+           let releaseDate = releaseDates.first(where: { $0["iso_3166_1"] as? String == country.description }),
+           let result = releaseDate["release_dates"] as? [[String : Any]],
+           let cert = result.first?["certification"] as? String {
+            return cert
+        }
+        
+        throw TMDBSwiftly.TSError.noCertFound
+    }
+    
     // MARK: - Now Playing
     
     public static func nowPlayingTS(
@@ -78,13 +101,6 @@ extension TMDBSwiftly.Movie {
 
 extension Array where Element == TMDBSwiftly.QueryParameter.Movie {
     func appendToResponseString() -> String {
-        
-        var baseString = "append_to_response="
-        
-        for item in self {
-            baseString.append("\(item),")
-        }
-        
-        return baseString
+        self.reduce("", { $0 + "\($1), " })
     }
 }
