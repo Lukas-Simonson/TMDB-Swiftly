@@ -54,7 +54,7 @@ extension TMDBSwiftly.Movie {
         country: TMDBSwiftly.TSRegion
     ) async throws -> String {
         
-        let urlString = "\(TMDBSwiftly.basePath)\(TMDBSwiftly.APIVersion.v3)/movie/\(id)?\(TMDBSwiftly.QueryParameter.apiKey(value: key))"
+        let urlString = "\(TMDBSwiftly.basePath)\(TMDBSwiftly.APIVersion.v3)/movie/\(id)/release_dates?\(TMDBSwiftly.QueryParameter.apiKey(value: key))"
         guard let url = URL(string: urlString)
         else { throw TMDBSwiftly.TSError.couldntGenerateURL(from: urlString) }
         
